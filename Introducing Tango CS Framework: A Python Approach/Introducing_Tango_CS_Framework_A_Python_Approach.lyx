@@ -85,7 +85,7 @@ Introduction
 
 \begin_layout Standard
 The intention is that this paper will serve those who are new to the Tango
- framework, as a practical approach to gaining exposure to the fundementals
+ framework, as a practical approach to gaining exposure to the fundamentals
  of the system and just some of its supporting tools.
  As such, it should act as an introduction, to build the readers confidence
  to continue further exploration.
@@ -105,14 +105,14 @@ Learning Outcomes
 
 \begin_layout Standard
 For the most part, the following sections will find support within the Tango
- framwork to execute the individual tasks in implementing a remote controllable
+ framework to execute the individual tasks in implementing a remote controllable
  software shift register.
- These tasks serve the higher level learning outcomes of the fundemental
+ These tasks serve the higher level learning outcomes of the fundamental
  Tango CS concepts and discovering some of the accompanying support tools.
 \end_layout
 
 \begin_layout Standard
-The fundemental concepts/objects of the Tango CS will be covered along with
+The fundamental concepts/objects of the Tango CS will be covered along with
  how access is provided through the core Application Programming Interface
  (API).
  Specifically the API extensions developed for Python support will be detailed.
@@ -144,7 +144,7 @@ key "key-1"
  It has implemented its remoting system on a distributed object architecture,
  and as a result permits program communication irrespective of programming
  language, platform or network.
- The architecture referred to is CORBA, Common Object Request Broker Architectur
+ The architecture referred to is CORBA, Common Object Request Broker Architecture
 e 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -160,9 +160,9 @@ CORBA
 \end_layout
 
 \begin_layout Standard
-A distributed obect system is an approach to simulate single address space
+A distributed object system is an approach to simulate single address space
  systems to tackle the problems of remoting, however solving remoting has
- since taken on service oriented and RESTful API approaches 
+ since taken on service oriented and REST-ful API approaches 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-3,key-4"
@@ -177,10 +177,10 @@ key "key-3,key-4"
 
 \begin_layout Standard
 At a high level, CORBA implementations such as Tango, expose interfaces
- via a broker/ORB (Obejct Request Broker) to support remote method invocation
+ via a broker/ORB (Object Request Broker) to support remote method invocation
  on objects that may be distributed across a network.
  The ORB can offer location transparency to the client and data marshalling.
- To reference an object, the client making the request uses an IOR (Interoperabl
+ To reference an object, the client making the request uses an IOR (Interoperable
 e Object Reference), usually a structure containing remote host/process
  and object/method identifiers.
 \end_layout
@@ -245,7 +245,7 @@ client
  The Tango model exposes devices to clients via a common interface served
  by the server.
  Its attributes, properties and commands are locatable by a network unique
- namespace of the form 
+ name space of the form 
 \emph on
 <domain>/<family>/<member>.
 \end_layout
@@ -257,7 +257,7 @@ The Device
 \begin_layout Standard
 This is the key Tango concept, a device class associated with a particular
  piece of hardware (normally), describes the device behaviour.
- It can be uniquely identified by the device namespace of the form 
+ It can be uniquely identified by the device name space of the form 
 \size small
 \emph on
 [FACILITY/]DOMAIN/CLASS/MEMBER
@@ -308,7 +308,7 @@ key "key-7"
  It is used as a registry of the device classes, instances and device network
  locations hosted by a device server, to be queried primarily by Tango clients.
  It is also used to store configuration properties for devices, providing
- startup configurations to device servers for their device instances.
+ start-up configurations to device servers for their device instances.
 \end_layout
 
 \begin_layout Paragraph
@@ -348,7 +348,7 @@ Error Handling
 \end_layout
 
 \begin_layout Standard
-Every distributed system is susceptable to failures, and Tango ensures more
+Every distributed system is susceptible to failures, and Tango ensures more
  accurate troubleshooting and efficient maintenance via it's standard approach
  and purpose built API for errors.
 \end_layout
@@ -448,7 +448,7 @@ and
  
 \emph default
 Each takes the message string to be logged, and delivers to the configured
- targets with the severity level and device namespace.
+ targets with the severity level and device name space.
  Further support exists through method decorators that will produce logs
  as the execution enters and leaves the method.
  
@@ -494,7 +494,7 @@ key "key-12"
 TaurusForm
 \emph default
 : This widget offers a standalone application which is ready to use to view
- and edit attribues.
+ and edit attributes.
  From a terminal, provide TaurusForm with a list of attribute model URIs
  and a UI form will be presented.
  Thus we could for our purposes do:
@@ -571,7 +571,7 @@ Tango Controls Kernel
 \end_layout
 
 \begin_layout Standard
-Installation intructions for Tango Controls can be found online 
+Installation instructions for Tango Controls can be found online 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-13"
@@ -614,7 +614,7 @@ Design
 
 \begin_layout Standard
 Dividing the implementation of the actual register and the device class
- that will define the Tango interface, we seperate the concerns of the register
+ that will define the Tango interface, we separate the concerns of the register
  implementation and how it interacts with the distributed system (the Tango
  part).
  See now the accompanying code files 
@@ -636,7 +636,7 @@ The register
 an object called ShiftRegister, holds a string value of n chars to represent
  an n-length shift register.
  The initializer method takes an optional integer as input, allowing the
- register to be initialezed to a given size.
+ register to be initialized to a given size.
  The ShiftRegister class has just two other methods, 
 \emph on
 'readRegister'
@@ -652,7 +652,7 @@ an object called ShiftRegister, holds a string value of n chars to represent
 \emph default
  takes a char to be appended to the end of the register string following
  the first chars removal.
- In this fashion it simlutes the shifting of chars from right to left.
+ In this fashion it simulates the shifting of chars from right to left.
 \end_layout
 
 \begin_layout Paragraph
@@ -753,12 +753,12 @@ Coding
 \begin_layout Standard
 Using the PyTango.server module the development time is minimal.
  Inheriting from the PyTango.server.Device class and through the use of device
- decorators that abstract the Tango funactionality, programming is quick
+ decorators that abstract the Tango functionality, programming is quick
  and clean.
 \end_layout
 
 \begin_layout Standard
-The filename is restricted to that of the server name ShiftRegisterDS, that
+The file name is restricted to that of the server name ShiftRegisterDS, that
  will be used a little later to test the server.
  Within the file we will import the modules necessary for the device class
  definition and 
@@ -766,7 +766,7 @@ The filename is restricted to that of the server name ShiftRegisterDS, that
 'server_run'
 \emph default
  module for the device server.
- This specific modeule is used exclusively in our main function at the end
+ This specific module is used exclusively in our main function at the end
  of the file, it is the server loop and takes a class list as a parameter,
  namely the device classes to host.
 \end_layout
@@ -786,12 +786,12 @@ Testing
 Interpreted languages such as Python offer faster development cycles over
  compiled alternatives.
  A drawback is however that the risk of bugs reaching production code increases.
- Development that is closely integrated with testing is a strong defense
+ Development that is closely integrated with testing is a strong defence
  to this risk.
 \end_layout
 
 \begin_layout Standard
-To this end testing should be performed throughout the develeopment cycle.
+To this end testing should be performed throughout the development cycle.
  Even at this early stage of our development we should take advantage of
  the 
 \emph on
@@ -862,11 +862,11 @@ Taurus Core Support
 provides the developer with Tango models like Database, Device & Attribute.
  These differ in functionality to the models of PyTango that we have seen
  earlier.
- A model request is accompanied with a URI to uniqely identify the Tango
+ A model request is accompanied with a URI to uniquely identify the Tango
  object, is handled by a Taurus singleton which resolves the URI with some
  degree of intelligence, returning the Taurus object representation (itself
  a singleton object).
- As a result, intereacting with the Taurus objects should feel more intuitive
+ As a result, interacting with the Taurus objects should feel more intuitive
  and be less error prone to that of PyTango objects.
 \end_layout
 
@@ -889,7 +889,7 @@ key "key-17"
  In each case, we create the object, set the model and apply it to our Qt
  layout.
  In reality, we are merely connecting the appropriate model, view and controller
-s togethers for our needs.
+s together for our needs.
  The Taurus framework has made the developers job quite straightforward.
 \end_layout
 
@@ -906,7 +906,7 @@ ClientShiftRegister.py
  If your client machine has the TANGO_HOST variable set, then like the code
  reads, the URIs may take their shortened form.
  Otherwise the Taurus documentation describes the URI format in depth.
- Both of our forms created display some of the configurability via the API,
+ Both of our forms created display some of the reconfigurability via the API,
  namely the ability to hide/show form buttons on the TaurusForm and the
  ability to provide a function to filter the visible commands of the TaurusComma
 ndsForm.
@@ -953,8 +953,8 @@ Our goal here was to introduce the Tango framework implementing a remote
 
 \begin_layout Standard
 A simplistic design, and a narrow project scope, allowed us to cover the
- fundemental concepts in a self contained but not all inclusive manner,
- while gaining visibility to elements of the toolset.
+ fundamental concepts in a self contained but not all inclusive manner,
+ while gaining visibility to elements of the tool set.
  The reader should now hold a understanding of the methodology, core architectur
 e, and awareness of the supporting framework.
  And as a result be empowered to continue with further exploration into
